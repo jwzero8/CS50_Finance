@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your portfolio :D
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:indigo"> Your trade details: </h2>
+    <br><br>
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Transaction date</th>
+      <th scope="col">Stock ticker</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">Turnover</th>
+      <th scope="col">Transaction type</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for row in trade_db %}
+        <tr>
+            <td>{{ row["date"] }}</td>
+            <td>{{ row["symbol"] }}</td>
+            <td>{{ row["share"] }}</td>
+            <td>{{ row["price"] }}</td>
+            <td>{{ row["turnover"] }}</td>
+            <td>{{ row["transaction_type"] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="color:salmon">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td >Available Cash</td>
+            <td>{{ cash }}</td>
+        </tr>
+
+  </tbody>
+</table>
+
+    <!--form action="/buy" method="post" -->
+    <form action="/allsell" method="post">
+        <div class="mb-3">
+        <button class="btn btn-primary" type="submit">One click sell all</button>
+        <button class="btn btn-primary" type="submit">一鍵清倉</button>
+        </div>
+    </form>
+    <!-- /form -->
+
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your portfolio :D
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:indigo"> Your portfolio's details: </h2>
+    <br><br>
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Stock ticker</th>
+      <th scope="col">Shares you owned</th>
+      <th scope="col">Price</th>
+      <th scope="col">Value</th>
+
+    </tr>
+  </thead>
+  <tbody>
+        {% for stock in stocks %}
+        <tr>
+            <td>{{ stock["symbol"] }}</td>
+            <td>{{ stock["shares"] }}</td>
+            <td>{{ stock["price"] }}</td>
+            <td>{{ stock["price"] * stock["shares"] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="color:salmon">
+            <td></td>
+            <td></td>
+            <td >Available Cash</td>
+            <td>{{ cash }}</td>
+        </tr>
+        <tr style="color:salmon">
+            <td></td>
+            <td></td>
+            <td >Total asset</td>
+            <td>{{ asset }}</td>
+        </tr>
+
+  </tbody>
+</table>
+
+    <!--form action="/buy" method="post" -->
+    <form action="/allsell" method="post">
+        <div class="mb-3">
+        <button class="btn btn-primary" type="submit">One click sell all</button>
+        <button class="btn btn-primary" type="submit">一鍵清倉</button>
+        </div>
+    </form>
+    <!-- /form -->
+{% endblock %}

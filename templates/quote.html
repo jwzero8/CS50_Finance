@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <!-- Note: remember to change form action route as always -->
+    <form action="/quote" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="username" name="symbol" placeholder="Stock symbol" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Get your stock quote</button>
+        <p>Please enter <u>STOCK TICKERS</u> not the name:")</p>
+    </form>
+    <div>
+    <h4 class="s"> The market be like...
+    <img src="https://www.visualcapitalist.com/wp-content/uploads/2022/01/stock-market-winners-losers-2021-prev.jpg">
+    </h4>
+    </div>
+{% endblock %}

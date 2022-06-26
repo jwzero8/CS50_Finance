@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <!-- Note: remember to change form action route as always -->
+    <table class="s">
+        <tr>
+        <h3>Stock name: {{ name }}</h3>
+        <h3>Current price (in USD): $ {{ price }}</h3>
+        <h3>Stock symbol: {{ symbol }}</h3>
+        </tr>
+    </table>
+{% endblock %}

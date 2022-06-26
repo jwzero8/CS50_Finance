@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to the gambling (or investing?) stock market!
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:salmon"> Please enter the amount you want to sell! <h1>
+    <h4 style="color:indigo"> Note: No margin selling is allowed here :D</h4>
+
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Stock symbol" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="shares" placeholder="Number of share" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
